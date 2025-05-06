@@ -1,0 +1,4 @@
+github.com/charasi/raft-consensus v0.0.0-20250506023521-6202201db98b h1:FXWQKRT2l/Guk3T7hfg7EDaF0wZbBFpijrXN1+zPt+k=
+github.com/charasi/raft-consensus v0.0.0-20250506023521-6202201db98b/go.mod h1:vbN+bMAMKd5IT6GPBxN/Ykw5sdaah7mmfoavTzeW8y8=
+github.com/charasi/raft-consensus/remote v0.1.1 h1:5H5ae+L/eOgf3JgW1a7c4sFT42i16JqUZfFodifUdu8=
+github.com/charasi/raft-consensus/remote v0.1.1/go.mod h1:E97oPBFg0ZtzA8IuwvL0jQefCBYQE/p6MvbyUniLfOY=
