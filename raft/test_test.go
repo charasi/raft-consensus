@@ -8,7 +8,7 @@ package raft
 
 import (
 	"fmt"
-	"github.com/cmu14736/s23-lab1-go-distributed/remote"
+	"github.com/charasi/raft-consensus/remote"
 	"math/rand"
 	"strconv"
 	"sync"
