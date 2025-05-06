@@ -1,7 +1,7 @@
 package raft
 
 import (
-	"github.com/cmu14736/s23-lab1-go-distributed/remote"
+	"github.com/charasi/raft-consensus/remote"
 	"log"
 	"math/rand"
 	"strconv"
