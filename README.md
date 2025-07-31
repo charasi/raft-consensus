@@ -70,3 +70,73 @@ This project is a ground-up implementation of the **Raft consensus algorithm** u
 
 - **Go**: Goroutines and native concurrency support for network systems
 - **Custom RPC**: Lightweight remote messaging layer tailored to Raft
+
+# 📦 Remote Objects Library (Go)
+
+A lightweight remote method invocation framework inspired by Java RMI, designed for developers who need seamless interaction with remote objects over TCP. This Go-based library enables structured remote procedure calls, custom exception handling, and resilience testing — all in a compact and extensible package.
+
+---
+
+## 🎯 Overview
+
+Remote Objects allows clients to invoke methods on server-hosted objects transparently. It uses:
+- A **multithreaded Service** to expose remote objects
+- A **StubFactory** to generate client-side proxies via reflection
+- A **shared service interface** ensuring type-safe communication between client and server
+
+---
+
+## ⚙️ Core Components
+
+| Component          | Role                                                                 |
+|--------------------|----------------------------------------------------------------------|
+| **Service**        | Manages client connections, method dispatching, and response encoding |
+| **StubFactory**    | Generates proxy objects, handles serialization and error propagation |
+| **LeakySocket**    | Simulates lossy/delayed network conditions for resilience testing     |
+
+---
+
+## 🧠 Key Technologies & Concepts
+
+- **Language**: Go
+- **Protocol**: TCP with synchronous request-reply messaging
+- **Stub Generation**: Reflection-based proxy creation
+- **Server Architecture**: Multi-threaded TCP server
+- **Serialization**: Go’s `gob` encoding
+- **Error Handling**: `RemoteObjectException` / `RemoteObjectError`
+- **Resilience Testing**: Network fault injection via `LeakySocket`
+- **Design Patterns**: Proxy, Service Interface, Multithreaded Server
+
+---
+
+## 🔁 Robustness Features
+
+- Graceful service restart on failures
+- Retransmission support for partial communication errors
+- Custom exceptions distinguish protocol vs. application issues
+- Dynamic method signature support via reflection
+
+---
+
+## 🧪 Testing Toolkit
+
+- Simulated packet loss and delay
+- Concurrent client handling with fault modeling
+- Behavior validation under degraded network conditions
+
+---
+
+## 📌 Usage Example (Coming Soon)
+
+```go
+// Define your shared interface
+type Calculator interface {
+    Add(a int, b int) (int, error)
+}
+
+// Server-side: Register implementation
+service.Register(&CalculatorImpl{})
+
+// Client-side: Generate stub
+calc := stubFactory.Create("Calculator").(Calculator)
+result, err := calc.Add(3, 5)
