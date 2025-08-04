@@ -124,19 +124,3 @@ Remote Objects allows clients to invoke methods on server-hosted objects transpa
 - Concurrent client handling with fault modeling
 - Behavior validation under degraded network conditions
 
----
-
-## 📌 Usage Example (Coming Soon)
-
-```go
-// Define your shared interface
-type Calculator interface {
-    Add(a int, b int) (int, error)
-}
-
-// Server-side: Register implementation
-service.Register(&CalculatorImpl{})
-
-// Client-side: Generate stub
-calc := stubFactory.Create("Calculator").(Calculator)
-result, err := calc.Add(3, 5)
